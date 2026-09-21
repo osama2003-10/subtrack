@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مُدير الاشتراكات - SubTrack</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- الهيدر والملخص المالي -->
+<!-- الهيدر والملخص المالي -->
+<header class="summary-card">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+        <h1 style="margin: 0; font-size: 1.1rem;">مصاريف الاشتراكات</h1>
+        <!-- قائمة اختيار العملة -->
+        <select id="currencySelect" style="background: rgba(255,255,255,0.2); color: white; border: none; padding: 4px 8px; border-radius: 8px; font-size: 0.85rem; outline: none; cursor: pointer;">
+            <option value="$" style="color: black;">USD ($)</option>
+            <option value="ر.س" style="color: black;">ريال سعودي (ر.س)</option>
+            <option value="ر.ي" style="color: black;">ريال يمني (ر.ي)</option>
+            <option value="د.إ" style="color: black;">درهم إماراتي (د.إ)</option>
+            <option value="ج.م" style="color: black;">جنيه مصري (ج.م)</option>
+            <option value="€" style="color: black;">Euro (€)</option>
+        </select>
+    </div>
+
+    <!-- المجموع الشهري -->
+    <div class="total-amount" style="font-size: 2rem; font-weight: bold; margin: 5px 0;">
+        <span class="currencySymbol">$</span><span id="totalCost">0.00</span>
+        <span style="font-size: 0.85rem; font-weight: normal; opacity: 0.8;">/ شهرياً</span>
+    </div>
+
+    <!-- المجموع السنوي المتوقع -->
+    <div style="font-size: 0.9rem; opacity: 0.9; margin-top: 6px; padding-top: 6px; border-top: 1px solid rgba(255,255,255,0.2);">
+        📊 الإنفاق السنوي المتوقع: <span style="font-weight: bold; color: #f59e0b;"><span class="currencySymbol">$</span><span id="yearlyCost">0.00</span></span>
+    </div>
+</header>
+
+
+
+        <!-- زر إضافة اشتراك جديد -->
+        <section class="action-section">
+            <button id="openModalBtn" class="btn-primary">+ إضافة اشتراك جديد</button>
+        </section>
+
+        <!-- قائمة الاشتراكات -->
+        <section class="subscriptions-section">
+            <h2>اشتراكاتك الحالية</h2>
+            <div id="subscriptionsList" class="subscriptions-list">
+                <!-- ستظهر البطاقات هنا تلقائياً عبر JavaScript -->
+            </div>
+        </section>
+<!-- قسم النسخ الاحتياطي والاستعادة -->
+<div style="margin-top: 30px; padding: 15px; border-top: 1px solid rgba(255, 255, 255, 0.1); text-align: center;">
+    <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 10px;">إدارة وحفظ البيانات:</p>
+    <div style="display: flex; gap: 10px; justify-content: center;">
+        <button id="exportBtn" style="background: rgba(255, 255, 255, 0.1); color: white; border: none; padding: 8px 12px; border-radius: 8px; font-size: 0.85rem; cursor: pointer;">📥 تصدير نسختك</button>
+        <button id="importBtn" style="background: rgba(255, 255, 255, 0.1); color: white; border: none; padding: 8px 12px; border-radius: 8px; font-size: 0.85rem; cursor: pointer;">📤 استعادة نسخة</button>
+    </div>
+    <!-- ملف رفع مختفي للاستعادة -->
+    <input type="file" id="importFile" accept=".json" style="display: none;">
+</div>
+
+    </div>
+
+    <!-- النافذة المنبثقة لإضافة اشتراك (Modal) -->
+    <div id="subModal" class="modal">
+        <div class="modal-content">
+            <h3>إضافة اشتراك جديد</h3>
+            <form id="subForm">
+                <label>اسم الخدمة:</label>
+                <input type="text" id="subName" placeholder="مثال: Netflix، النادي، الإنترنت" required>
+
+                <label>التكلفة الشهرية ($):</label>
+                <input type="number" id="subCost" step="0.01" placeholder="مثال: 9.99" required>
+
+                <label>تاريخ التجديد القادم:</label>
+                <input type="date" id="subDate" required>
+<label>نبهني قبل الموعد بـ:</label>
+<select id="subAlertDays" required style="padding: 14px; border-radius: 10px; border: 1px solid rgba(255, 255, 255, 0.1); background-color: var(--bg-color); color: white; font-size: 1rem;">
+    <option value="1">يوم واحد (24 ساعة)</option>
+    <option value="2" selected>يومين</option>
+    <option value="3">3 أيام</option>
+    <option value="7">أسبوع</option>
+</select>
+<!-- خيار التجربة المجانية -->
+<div style="display: flex; align-items: center; gap: 10px; margin-top: 8px;">
+    <input type="checkbox" id="isTrial" style="width: 18px; height: 18px; cursor: pointer;">
+    <label for="isTrial" style="cursor: pointer; font-weight: 500; color: #f59e0b;">🎁 هذه تجربة مجانية (Free Trial)</label>
+</div>
+
+                <div class="modal-actions">
+                    <button type="button" id="closeModalBtn" class="btn-secondary">إلغاء</button>
+                    <button type="submit" class="btn-primary">حفظ الاشتراك</button>
+                </div>
+            </form>
+        </div>
+        
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
