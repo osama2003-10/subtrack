@@ -2,9 +2,15 @@
   "short_name": "SubTrack",
   "name": "SubTrack - إدارة الاشتراكات",
   "description": "تطبيق بسيط لحساب وإدارة الاشتراكات والتجربة المجانية",
-    "icons": [
+  "icons": [
     {
-      "src": "app-icon.png",
+      "src": "https://osama2003-10.github.io/subtrack/app-icon.png",
+      "type": "image/png",
+      "sizes": "192x192",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "https://osama2003-10.github.io/subtrack/app-icon.png",
       "type": "image/png",
       "sizes": "512x512",
       "purpose": "any maskable"
