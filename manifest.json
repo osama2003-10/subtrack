@@ -1,0 +1,18 @@
+{
+  "short_name": "SubTrack",
+  "name": "SubTrack - إدارة الاشتراكات",
+  "description": "تطبيق بسيط لحساب وإدارة الاشتراكات والتجربة المجانية",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/2845/2845531.png",
+      "type": "image/png",
+      "sizes": "512x512",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": "./index.html",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "display": "standalone",
+  "orientation": "portrait"
+}
